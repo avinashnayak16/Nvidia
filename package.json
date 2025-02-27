@@ -1,0 +1,99 @@
+{
+  "name": "hsl-extension",
+  "displayName": "HSL Extension",
+  "description": "VS Code extension for Hardware Sequence Language (HSL)",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "hsl.runCompiler",
+        "title": "Run HSL Compiler"
+      }
+    ],
+    "languages": [
+      {
+        "id": "hsl",
+        "aliases": ["HSL", "hsl"],
+        "extensions": [".hsl"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "hsl",
+        "scopeName": "source.hsl",
+        "path": "./syntaxes/hsl.tmLanguage.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "HSL Custom Theme",
+        "uiTheme": "vs-dark",
+        "path": "./syntaxes/HSL.tmTheme.json"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "hsl.runCompiler",
+          "when": "resourceExtname == '.hsl'",
+          "group": "navigation"
+        }
+      ]
+    },
+    "debuggers": [
+      {
+        "type": "hsl",
+        "label": "HSL Debugger",
+        "program": "./out/debugAdapter.js",
+        "languages": ["hsl"],
+        "configurationAttributes": {
+          "launch": {
+            "required": ["program"],
+            "properties": {
+              "program": {
+                "type": "string",
+                "description": "Path to the HSL file to debug"
+              }
+            }
+          }
+        },
+        "configurationSnippets": [
+          {
+            "label": "Run HSL Compiler",
+            "description": "Compile and execute HSL file",
+            "body": {
+              "type": "hsl",
+              "request": "launch",
+              "program": "${file}"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "compile": "echo 'Add compilation script if needed'"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "eslint": "^9.9.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "vscode-debugadapter": "^1.51.0"
+  }
+}

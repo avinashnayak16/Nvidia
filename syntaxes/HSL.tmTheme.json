@@ -1,0 +1,64 @@
+{
+    "name": "HSL Custom Theme (Jewel Tones)",
+    "type": "dark",
+    "tokenColors": [
+        {
+            "scope": "entity.name.function.hsl",
+            "settings": {
+                "foreground": "#81A1C1"  
+            }
+        },
+        {
+            "scope": "keyword.other.boolean.hsl",
+            "settings": {
+                "foreground": "#BF616A",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": "variable.other.local.hsl",  
+            "settings": {
+                "foreground": "#B48EAD"
+            }
+        },
+        {
+            "scope": "variable.other.hsl",  
+            "settings": {
+                "foreground": "#EBCB8B"
+            }
+        },
+        {
+            "scope": "keyword.control.hsl",
+            "settings": {
+                "foreground": "#D08770"
+            }
+        },
+        {
+            "scope": "keyword.other.reserved.hsl",
+            "settings": {
+                "foreground": "#EBCB8B",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "scope": "comment.line.double-slash.hsl",
+            "settings": {
+                "foreground": "#6A9955",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "scope": "comment.block.hsl",
+            "settings": {
+                "foreground": "#6A9955",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "scope": "string.quoted.double.hsl",
+            "settings": {
+                "foreground": "#D08770"
+            }
+        }
+    ]
+}

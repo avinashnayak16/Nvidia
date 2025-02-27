@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run HSL Compiler",
+            "type": "shell",
+            "command": "./bin/compiler",
+            "args": ["${file}"],
+            "problemMatcher": []
+        }
+    ]
+}

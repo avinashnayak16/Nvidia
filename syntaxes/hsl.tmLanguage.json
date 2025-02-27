@@ -1,0 +1,89 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Hardware Sequence Language",
+    "patterns": [
+        { "include": "#keywords" },
+        { "include": "#identifiers" },
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#functions" },
+        { "include": "#reservedWords" },
+        { "include": "#booleans" },
+        { "include": "#Parameters" }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.hsl",
+                    "match": "\\b(Device|Sequence|I2CBus|GPIOPin)\\b"
+                }
+            ]
+        },
+        "identifiers": {
+            "patterns": [
+                {
+                    "name": "variable.other.local.hsl",
+                    "match": "\\b(?!Device|device|I2CBus|GPIOPin|offset_nbits|data_nbits|addr|DeviceAlias|new_addr|dest|offset|offset_list|offset_list_items|verify|no_verify|value|stream|mask|time|retrys|state|docstring)([a-z][a-zA-Z0-9_]*)\\b" 
+                }
+            ]
+        },
+        "Parameters": {
+            "patterns": [
+                {
+                    "name": "variable.other.hsl",
+                    "match": "\\b(offset_nbits|data_nbits|addr|device|new_addr|dest|offset|offset_list|offset_list_items|verify|no_verify|value|stream|mask|time|retrys|state|docstring)\\b"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.double-slash.hsl",
+                    "match": "\\/\\/.*$"
+                },
+                {
+                    "name": "comment.block.hsl",
+                    "begin": "\\/\\*",
+                    "end": "\\*\\/"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.hsl",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.hsl",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "entity.name.function.hsl",
+                    "match": "\\b(if|while|for|return|Run|Write|WriteStream|ReadVerify|ReadIgnore|DeviceAlias|SetVerify|Modify|Wait|Poll|Toggle|Set|Annotate)\\b"
+                }
+            ]
+        },
+        "booleans": {
+            "patterns": [
+                {
+                    "name": "keyword.other.boolean.hsl",
+                    "match": "\\b(True|False)\\b"
+                }
+            ]
+        },
+        "reservedWords": {
+            "patterns": [
+                {
+                    "name": "keyword.other.reserved.hsl",
+                    "match": "\\b(no_verify|HI|LO|ALL)\\b"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.hsl"
+}
